@@ -39,6 +39,4 @@
   <rect x="216" y="216" width="592" height="592" rx="122" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.30" stroke-width="10"/>
   <path d="M325 514a187 187 0 1 0 374 0" fill="none" stroke="url(#stroke)" stroke-width="54" stroke-linecap="round"/>
   <path d="M512 286v172" fill="none" stroke="#effdff" stroke-width="54" stroke-linecap="round"/>
-  <path d="M346 690h332" fill="none" stroke="#96f0ff" stroke-opacity="0.80" stroke-width="36" stroke-linecap="round"/>
-  <path d="M698 626a78 78 0 1 0 76 104a72 72 0 0 1-76-104z" fill="#b8ffc6"/>
 </svg>

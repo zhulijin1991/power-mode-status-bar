@@ -129,7 +129,7 @@ The app does not try to block manual user actions. If you explicitly lock the sc
 
 ![Power Mode Status Bar app icon](Resources/AppIcon-1024.png)
 
-The icon uses a macOS 26-style glass tile, a power symbol for active wake control, a laptop baseline for MacBook workflows, and a moon shape for standby/sleep behavior.
+The icon uses a macOS 26-style glass tile and a clean power symbol for active wake control.
 
 ## Search Keywords
 
