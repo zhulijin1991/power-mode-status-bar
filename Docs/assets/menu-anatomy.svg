@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" role="img" aria-labelledby="title desc">
+  <title id="title">Menu anatomy</title>
+  <desc id="desc">Annotated menu showing mode choices, rule summary, startup toggle, manual system settings, and quit action.</desc>
+  <rect width="1100" height="700" rx="34" fill="#0b1013"/>
+  <text x="56" y="72" fill="#f4fbfb" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="38" font-weight="800">Menu anatomy</text>
+  <text x="56" y="112" fill="#95a8ac" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20">Everything important is one click away in the macOS menu bar.</text>
+
+  <g transform="translate(92 158)" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <rect width="520" height="448" rx="34" fill="#111516" stroke="#ffffff" stroke-opacity="0.18"/>
+    <text x="54" y="64" fill="#f5fbfb" font-size="26" font-weight="800">极限模式</text>
+    <text x="54" y="112" fill="#f5fbfb" font-size="26" font-weight="800">办公模式</text>
+    <text x="54" y="160" fill="#f5fbfb" font-size="26" font-weight="800">待机模式</text>
+    <text x="220" y="64" fill="#8ea1a5" font-size="17" font-weight="700">合盖/不插电都不睡眠、不锁屏</text>
+    <text x="220" y="112" fill="#8ea1a5" font-size="17" font-weight="700">始终不睡眠，不插电合盖锁屏</text>
+    <text x="220" y="160" fill="#8ea1a5" font-size="17" font-weight="700">不插电合盖自动锁屏、睡眠</text>
+    <path d="M32 196h456" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="32" y="246" fill="#657175" font-size="22" font-weight="800">合盖：进入睡眠 关闭，自动锁屏 开启</text>
+    <text x="32" y="296" fill="#657175" font-size="22" font-weight="800">不插电：进入睡眠 关闭，自动锁屏 关闭</text>
+    <path d="M32 326h456" stroke="#ffffff" stroke-opacity="0.14"/>
+    <text x="32" y="376" fill="#f5fbfb" font-size="24" font-weight="800">开机自启动</text>
+    <text x="32" y="424" fill="#f5fbfb" font-size="24" font-weight="800">应用系统级设置（需授权）</text>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20">
+    <path d="M626 256h120" stroke="#8ff6ff" stroke-width="6" stroke-linecap="round"/>
+    <text x="765" y="262" fill="#dffcff" font-weight="800">Mode switch area</text>
+    <text x="765" y="292" fill="#9eb4b8">Clicking here never asks for password.</text>
+
+    <path d="M626 426h120" stroke="#9dffc8" stroke-width="6" stroke-linecap="round"/>
+    <text x="765" y="432" fill="#effff6" font-weight="800">Rule summary</text>
+    <text x="765" y="462" fill="#a8c0b4">Shows lid-close and unplugged behavior.</text>
+
+    <path d="M626 560h120" stroke="#d4d7ff" stroke-width="6" stroke-linecap="round"/>
+    <text x="765" y="566" fill="#f4f6ff" font-weight="800">Optional admin action</text>
+    <text x="765" y="596" fill="#b7bad0">Only this item may trigger authorization.</text>
+  </g>
+</svg>

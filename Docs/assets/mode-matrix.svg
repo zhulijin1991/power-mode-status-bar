@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Power mode behavior matrix</title>
+  <desc id="desc">Comparison of Extreme Mode, Office Mode and Standby Mode across plugged-in, unplugged, lid close, sleep and auto-lock behavior.</desc>
+  <rect width="1280" height="640" rx="34" fill="#0c1216"/>
+  <text x="56" y="72" fill="#f4fbfb" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="38" font-weight="800">Mode behavior matrix</text>
+  <text x="56" y="112" fill="#95a8ac" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20">Choose one mode. The app updates assertions immediately and keeps the menu status honest.</text>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
+    <g transform="translate(56 162)">
+      <rect width="360" height="398" rx="28" fill="#132529" stroke="#4ce2f0" stroke-opacity="0.46"/>
+      <text x="32" y="54" fill="#eaffff" font-size="30" font-weight="800">Extreme</text>
+      <text x="32" y="89" fill="#9bb3b6" font-size="18">Maximum keep-awake mode</text>
+      <path d="M32 130h296" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="32" y="177" fill="#dffcff" font-size="23" font-weight="700">Lid close</text>
+      <text x="32" y="213" fill="#9df5ff" font-size="20">Sleep off, auto-lock off</text>
+      <text x="32" y="270" fill="#dffcff" font-size="23" font-weight="700">Unplugged</text>
+      <text x="32" y="306" fill="#9df5ff" font-size="20">Sleep off, auto-lock off</text>
+      <text x="32" y="360" fill="#b7c8ca" font-size="18">For long builds, downloads, remote sessions.</text>
+    </g>
+
+    <g transform="translate(460 162)">
+      <rect width="360" height="398" rx="28" fill="#14231f" stroke="#89ffc1" stroke-opacity="0.46"/>
+      <text x="32" y="54" fill="#effff6" font-size="30" font-weight="800">Office</text>
+      <text x="32" y="89" fill="#9bb3a8" font-size="18">Work mode for moving around</text>
+      <path d="M32 130h296" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="32" y="177" fill="#effff6" font-size="23" font-weight="700">Lid close</text>
+      <text x="32" y="213" fill="#a7ffc8" font-size="20">Sleep off, auto-lock on</text>
+      <text x="32" y="270" fill="#effff6" font-size="23" font-weight="700">Unplugged</text>
+      <text x="32" y="306" fill="#a7ffc8" font-size="20">Sleep off, auto-lock off</text>
+      <text x="32" y="360" fill="#b7c8c0" font-size="18">For meetings, desk switching, battery work.</text>
+    </g>
+
+    <g transform="translate(864 162)">
+      <rect width="360" height="398" rx="28" fill="#171c2a" stroke="#d4d7ff" stroke-opacity="0.42"/>
+      <text x="32" y="54" fill="#f5f6ff" font-size="30" font-weight="800">Standby</text>
+      <text x="32" y="89" fill="#a8abbf" font-size="18">Conservative battery mode</text>
+      <path d="M32 130h296" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="32" y="177" fill="#f5f6ff" font-size="23" font-weight="700">Plugged in</text>
+      <text x="32" y="213" fill="#d6dcff" font-size="20">Sleep off, auto-lock off</text>
+      <text x="32" y="270" fill="#f5f6ff" font-size="23" font-weight="700">Unplugged + lid close</text>
+      <text x="32" y="306" fill="#d6dcff" font-size="20">Auto-lock and sleep</text>
+      <text x="32" y="360" fill="#bdc0d0" font-size="18">For safe standby when leaving power.</text>
+    </g>
+  </g>
+</svg>
