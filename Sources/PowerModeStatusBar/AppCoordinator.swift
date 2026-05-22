@@ -57,7 +57,7 @@ final class AppCoordinator: NSObject {
         do {
             try loginItemManager.setEnabled(true)
         } catch {
-            lastError = "开机自启动未启用：\(error.localizedDescription)"
+            lastError = "Open at Login was not enabled: \(error.localizedDescription)"
         }
     }
 
@@ -93,7 +93,7 @@ final class AppCoordinator: NSObject {
         case .success:
             lastError = nil
         case .failure(let error):
-            lastError = "策略应用失败：\(error.localizedDescription)"
+            lastError = "Failed to apply system settings: \(error.localizedDescription)"
         }
         applyRuntimePolicy()
     }
@@ -153,7 +153,7 @@ extension AppCoordinator: StatusMenuControllerDelegate {
             openAtLoginEnabled = nextValue
             lastError = nil
         } catch {
-            lastError = "开机自启动切换失败：\(error.localizedDescription)"
+            lastError = "Failed to toggle Open at Login: \(error.localizedDescription)"
         }
         menuController.update()
     }

@@ -8,11 +8,11 @@ public enum PowerMode: String, CaseIterable, Codable, Equatable, Sendable {
     public var title: String {
         switch self {
         case .extreme:
-            return "极限模式"
+            return "Extreme Mode"
         case .office:
-            return "办公模式"
+            return "Office Mode"
         case .standby:
-            return "待机模式"
+            return "Standby Mode"
         }
     }
 
@@ -30,11 +30,11 @@ public enum PowerMode: String, CaseIterable, Codable, Equatable, Sendable {
     public var coreFeatureSummary: String {
         switch self {
         case .extreme:
-            return "合盖/不插电都不睡眠、不锁屏"
+            return "Never sleeps or auto-locks"
         case .office:
-            return "始终不睡眠，不插电合盖锁屏"
+            return "Never sleeps; locks on battery lid close"
         case .standby:
-            return "不插电合盖自动锁屏、睡眠"
+            return "Battery lid close locks and sleeps"
         }
     }
 }
@@ -58,11 +58,11 @@ public struct RuleSummary: Equatable, Sendable {
     }
 
     public var lidLine: String {
-        "合盖：进入睡眠 \(lidTriggersSleep.displayText)，自动锁屏 \(lidTriggersAutoLock.displayText)"
+        "Lid close: sleep \(lidTriggersSleep.displayText), auto-lock \(lidTriggersAutoLock.displayText)"
     }
 
     public var unpluggedLine: String {
-        "不插电：进入睡眠 \(unpluggedTriggersSleep.displayText)，自动锁屏 \(unpluggedTriggersAutoLock.displayText)"
+        "On battery: sleep \(unpluggedTriggersSleep.displayText), auto-lock \(unpluggedTriggersAutoLock.displayText)"
     }
 }
 
@@ -96,6 +96,6 @@ public extension PowerMode {
 
 private extension Bool {
     var displayText: String {
-        self ? "开启" : "关闭"
+        self ? "on" : "off"
     }
 }

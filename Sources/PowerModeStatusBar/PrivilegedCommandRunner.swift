@@ -7,7 +7,7 @@ final class PrivilegedCommandRunner {
         var errorDescription: String? {
             switch self {
             case .commandFailed(let output):
-                return output.isEmpty ? "系统命令执行失败" : output
+                return output.isEmpty ? "System command failed" : output
             }
         }
     }

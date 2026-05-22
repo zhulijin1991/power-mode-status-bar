@@ -49,9 +49,9 @@ The menu is intentionally small:
 The mode rows include the core behavior directly in the menu:
 
 ```text
-极限模式    合盖/不插电都不睡眠、不锁屏
-办公模式    始终不睡眠，不插电合盖锁屏
-待机模式    不插电合盖自动锁屏、睡眠
+Extreme Mode    Never sleeps or auto-locks
+Office Mode     Never sleeps; locks on battery lid close
+Standby Mode    Battery lid close locks and sleeps
 ```
 
 ## How It Works
@@ -86,7 +86,7 @@ cd power-mode-status-bar
 The installed app appears as:
 
 ```text
-~/Applications/电源模式.app
+~/Applications/Power Mode.app
 ```
 
 The app runs as a normal macOS application bundle, so it is visible in the Applications list and can be launched by name.
@@ -121,7 +121,7 @@ Regenerate the app icon from SVG:
 
 Everyday mode switching does **not** require an administrator password.
 
-The menu item **应用系统级设置（需授权）** intentionally uses administrator authorization because it applies global `pmset` settings. You can ignore that item if you only want runtime mode switching.
+The menu item **Apply System Settings (Admin Required)** intentionally uses administrator authorization because it applies global `pmset` settings. You can ignore that item if you only want runtime mode switching.
 
 The app does not try to block manual user actions. If you explicitly lock the screen, sleep the Mac, quit the app, or shut down, the app respects that.
 
@@ -144,12 +144,12 @@ This project is meant for people searching for:
 - caffeinate alternative for macOS
 - Amphetamine alternative menu bar app
 - macOS power mode switcher
-- MacBook 不休眠
-- Mac 合盖不睡眠
-- Mac 状态栏防睡眠工具
-- macOS 自动锁屏控制
-- MacBook 插电不睡眠
-- MacBook 不插电合盖锁屏
+- MacBook keep awake utility
+- Mac lid close sleep control
+- Mac menu bar sleep prevention tool
+- macOS auto-lock control
+- MacBook plugged-in no sleep mode
+- MacBook battery lid close lock and sleep
 
 ## Roadmap Ideas
 

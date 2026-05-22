@@ -82,7 +82,7 @@ final class StatusMenuController: NSObject {
 
         menu.addItem(.separator())
         let loginItem = NSMenuItem(
-            title: "开机自启动",
+            title: "Open at Login",
             action: #selector(openAtLoginSelected(_:)),
             keyEquivalent: ""
         )
@@ -91,7 +91,7 @@ final class StatusMenuController: NSObject {
         menu.addItem(loginItem)
 
         let reapplyItem = NSMenuItem(
-            title: "应用系统级设置（需授权）",
+            title: "Apply System Settings (Admin Required)",
             action: #selector(reapplySelected(_:)),
             keyEquivalent: ""
         )
@@ -99,7 +99,7 @@ final class StatusMenuController: NSObject {
         menu.addItem(reapplyItem)
 
         menu.addItem(.separator())
-        let quitItem = NSMenuItem(title: "退出", action: #selector(quitSelected(_:)), keyEquivalent: "q")
+        let quitItem = NSMenuItem(title: "Quit", action: #selector(quitSelected(_:)), keyEquivalent: "q")
         quitItem.target = self
         menu.addItem(quitItem)
 

@@ -7,18 +7,18 @@
 
   <g transform="translate(92 158)" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">
     <rect width="520" height="448" rx="34" fill="#111516" stroke="#ffffff" stroke-opacity="0.18"/>
-    <text x="54" y="64" fill="#f5fbfb" font-size="26" font-weight="800">极限模式</text>
-    <text x="54" y="112" fill="#f5fbfb" font-size="26" font-weight="800">办公模式</text>
-    <text x="54" y="160" fill="#f5fbfb" font-size="26" font-weight="800">待机模式</text>
-    <text x="220" y="64" fill="#8ea1a5" font-size="17" font-weight="700">合盖/不插电都不睡眠、不锁屏</text>
-    <text x="220" y="112" fill="#8ea1a5" font-size="17" font-weight="700">始终不睡眠，不插电合盖锁屏</text>
-    <text x="220" y="160" fill="#8ea1a5" font-size="17" font-weight="700">不插电合盖自动锁屏、睡眠</text>
+    <text x="54" y="64" fill="#f5fbfb" font-size="26" font-weight="800">Extreme Mode</text>
+    <text x="54" y="112" fill="#f5fbfb" font-size="26" font-weight="800">Office Mode</text>
+    <text x="54" y="160" fill="#f5fbfb" font-size="26" font-weight="800">Standby Mode</text>
+    <text x="258" y="64" fill="#8ea1a5" font-size="17" font-weight="700">Never sleeps or auto-locks</text>
+    <text x="258" y="112" fill="#8ea1a5" font-size="17" font-weight="700">Locks on battery lid close</text>
+    <text x="258" y="160" fill="#8ea1a5" font-size="17" font-weight="700">Battery lid close locks and sleeps</text>
     <path d="M32 196h456" stroke="#ffffff" stroke-opacity="0.14"/>
-    <text x="32" y="246" fill="#657175" font-size="22" font-weight="800">合盖：进入睡眠 关闭，自动锁屏 开启</text>
-    <text x="32" y="296" fill="#657175" font-size="22" font-weight="800">不插电：进入睡眠 关闭，自动锁屏 关闭</text>
+    <text x="32" y="246" fill="#657175" font-size="22" font-weight="800">Lid close: sleep off, auto-lock on</text>
+    <text x="32" y="296" fill="#657175" font-size="22" font-weight="800">On battery: sleep off, auto-lock off</text>
     <path d="M32 326h456" stroke="#ffffff" stroke-opacity="0.14"/>
-    <text x="32" y="376" fill="#f5fbfb" font-size="24" font-weight="800">开机自启动</text>
-    <text x="32" y="424" fill="#f5fbfb" font-size="24" font-weight="800">应用系统级设置（需授权）</text>
+    <text x="32" y="376" fill="#f5fbfb" font-size="24" font-weight="800">Open at Login</text>
+    <text x="32" y="424" fill="#f5fbfb" font-size="24" font-weight="800">Apply System Settings (Admin Required)</text>
   </g>
 
   <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20">

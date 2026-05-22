@@ -20,42 +20,42 @@ func expect(_ condition: @autoclosure () -> Bool, _ message: String) throws {
 
 func testRuleSummaryDisplayLines() throws {
     try expect(
-        PowerMode.extreme.ruleSummary.lidLine == "合盖：进入睡眠 关闭，自动锁屏 关闭",
+        PowerMode.extreme.ruleSummary.lidLine == "Lid close: sleep off, auto-lock off",
         "extreme lid line mismatch"
     )
     try expect(
-        PowerMode.extreme.ruleSummary.unpluggedLine == "不插电：进入睡眠 关闭，自动锁屏 关闭",
+        PowerMode.extreme.ruleSummary.unpluggedLine == "On battery: sleep off, auto-lock off",
         "extreme unplugged line mismatch"
     )
     try expect(
-        PowerMode.office.ruleSummary.lidLine == "合盖：进入睡眠 关闭，自动锁屏 开启",
+        PowerMode.office.ruleSummary.lidLine == "Lid close: sleep off, auto-lock on",
         "office lid line mismatch"
     )
     try expect(
-        PowerMode.office.ruleSummary.unpluggedLine == "不插电：进入睡眠 关闭，自动锁屏 关闭",
+        PowerMode.office.ruleSummary.unpluggedLine == "On battery: sleep off, auto-lock off",
         "office unplugged line mismatch"
     )
     try expect(
-        PowerMode.standby.ruleSummary.lidLine == "合盖：进入睡眠 关闭，自动锁屏 开启",
+        PowerMode.standby.ruleSummary.lidLine == "Lid close: sleep off, auto-lock on",
         "standby lid line mismatch"
     )
     try expect(
-        PowerMode.standby.ruleSummary.unpluggedLine == "不插电：进入睡眠 开启，自动锁屏 关闭",
+        PowerMode.standby.ruleSummary.unpluggedLine == "On battery: sleep on, auto-lock off",
         "standby unplugged line mismatch"
     )
 }
 
 func testCoreFeatureSummaries() throws {
     try expect(
-        PowerMode.extreme.coreFeatureSummary == "合盖/不插电都不睡眠、不锁屏",
+        PowerMode.extreme.coreFeatureSummary == "Never sleeps or auto-locks",
         "extreme core feature summary mismatch"
     )
     try expect(
-        PowerMode.office.coreFeatureSummary == "始终不睡眠，不插电合盖锁屏",
+        PowerMode.office.coreFeatureSummary == "Never sleeps; locks on battery lid close",
         "office core feature summary mismatch"
     )
     try expect(
-        PowerMode.standby.coreFeatureSummary == "不插电合盖自动锁屏、睡眠",
+        PowerMode.standby.coreFeatureSummary == "Battery lid close locks and sleeps",
         "standby core feature summary mismatch"
     )
 }

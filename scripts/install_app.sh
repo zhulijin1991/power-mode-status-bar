@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_NAME="PowerModeStatusBar"
-DISPLAY_APP_NAME="电源模式.app"
+DISPLAY_APP_NAME="Power Mode.app"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE_APP="$ROOT_DIR/dist/$APP_NAME.app"
