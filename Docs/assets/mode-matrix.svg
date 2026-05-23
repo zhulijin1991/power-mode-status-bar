@@ -15,7 +15,7 @@
       <text x="32" y="213" fill="#9df5ff" font-size="20">Sleep off, auto-lock off</text>
       <text x="32" y="270" fill="#dffcff" font-size="23" font-weight="700">Unplugged</text>
       <text x="32" y="306" fill="#9df5ff" font-size="20">Sleep off, auto-lock off</text>
-      <text x="32" y="360" fill="#b7c8ca" font-size="18">For long builds, downloads, remote sessions.</text>
+      <text x="32" y="360" fill="#b7c8ca" font-size="18">Long builds and downloads.</text>
     </g>
 
     <g transform="translate(460 162)">
@@ -27,7 +27,7 @@
       <text x="32" y="213" fill="#a7ffc8" font-size="20">Sleep off, auto-lock on</text>
       <text x="32" y="270" fill="#effff6" font-size="23" font-weight="700">Unplugged</text>
       <text x="32" y="306" fill="#a7ffc8" font-size="20">Sleep off, auto-lock off</text>
-      <text x="32" y="360" fill="#b7c8c0" font-size="18">For meetings, desk switching, battery work.</text>
+      <text x="32" y="360" fill="#b7c8c0" font-size="18">Meetings and desk work.</text>
     </g>
 
     <g transform="translate(864 162)">
@@ -35,11 +35,11 @@
       <text x="32" y="54" fill="#f5f6ff" font-size="30" font-weight="800">Standby</text>
       <text x="32" y="89" fill="#a8abbf" font-size="18">Conservative battery mode</text>
       <path d="M32 130h296" stroke="#ffffff" stroke-opacity="0.12"/>
-      <text x="32" y="177" fill="#f5f6ff" font-size="23" font-weight="700">Plugged in</text>
-      <text x="32" y="213" fill="#d6dcff" font-size="20">Sleep off, auto-lock off</text>
-      <text x="32" y="270" fill="#f5f6ff" font-size="23" font-weight="700">Unplugged + lid close</text>
-      <text x="32" y="306" fill="#d6dcff" font-size="20">Auto-lock and sleep</text>
-      <text x="32" y="360" fill="#bdc0d0" font-size="18">For safe standby when leaving power.</text>
+      <text x="32" y="177" fill="#f5f6ff" font-size="23" font-weight="700">Lid close</text>
+      <text x="32" y="213" fill="#d6dcff" font-size="20">Sleep on, auto-lock on</text>
+      <text x="32" y="270" fill="#f5f6ff" font-size="23" font-weight="700">Unplugged</text>
+      <text x="32" y="306" fill="#d6dcff" font-size="20">Sleep on, auto-lock off</text>
+      <text x="32" y="360" fill="#bdc0d0" font-size="18">Leave power safely.</text>
     </g>
   </g>
 </svg>

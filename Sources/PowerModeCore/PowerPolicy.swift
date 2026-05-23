@@ -4,15 +4,18 @@ public struct RuntimePowerPolicy: Equatable, Sendable {
     public let preventSystemSleep: Bool
     public let preventDisplaySleep: Bool
     public let lockOnCurrentLidClosure: Bool
+    public let sleepOnCurrentLidClosure: Bool
 
     public init(
         preventSystemSleep: Bool,
         preventDisplaySleep: Bool,
-        lockOnCurrentLidClosure: Bool
+        lockOnCurrentLidClosure: Bool,
+        sleepOnCurrentLidClosure: Bool
     ) {
         self.preventSystemSleep = preventSystemSleep
         self.preventDisplaySleep = preventDisplaySleep
         self.lockOnCurrentLidClosure = lockOnCurrentLidClosure
+        self.sleepOnCurrentLidClosure = sleepOnCurrentLidClosure
     }
 }
 
@@ -29,27 +32,40 @@ public enum PowerPolicy {
             return RuntimePowerPolicy(
                 preventSystemSleep: true,
                 preventDisplaySleep: true,
-                lockOnCurrentLidClosure: false
+                lockOnCurrentLidClosure: false,
+                sleepOnCurrentLidClosure: false
             )
         case .office:
             return RuntimePowerPolicy(
                 preventSystemSleep: true,
-                preventDisplaySleep: !(lidClosed && !pluggedIn),
-                lockOnCurrentLidClosure: lidClosed && !pluggedIn
+                preventDisplaySleep: !lidClosed,
+                lockOnCurrentLidClosure: lidClosed,
+                sleepOnCurrentLidClosure: false
             )
         case .standby:
+            if lidClosed {
+                return RuntimePowerPolicy(
+                    preventSystemSleep: false,
+                    preventDisplaySleep: false,
+                    lockOnCurrentLidClosure: true,
+                    sleepOnCurrentLidClosure: true
+                )
+            }
+
             if pluggedIn {
                 return RuntimePowerPolicy(
                     preventSystemSleep: true,
                     preventDisplaySleep: true,
-                    lockOnCurrentLidClosure: false
+                    lockOnCurrentLidClosure: false,
+                    sleepOnCurrentLidClosure: false
                 )
             }
 
             return RuntimePowerPolicy(
                 preventSystemSleep: false,
                 preventDisplaySleep: false,
-                lockOnCurrentLidClosure: lidClosed
+                lockOnCurrentLidClosure: false,
+                sleepOnCurrentLidClosure: false
             )
         }
     }

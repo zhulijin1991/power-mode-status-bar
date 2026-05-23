@@ -13,7 +13,7 @@ final class AppCoordinator: NSObject {
     private lazy var menuController = StatusMenuController(delegate: self)
 
     private var monitorTimer: Timer?
-    private var lockedForCurrentLidClosure = false
+    private var handledLidClosureMode: PowerMode?
     private(set) var selectedMode: PowerMode {
         didSet {
             preferences.selectedMode = selectedMode
@@ -64,7 +64,7 @@ final class AppCoordinator: NSObject {
     private func startMonitoring() {
         monitorTimer?.invalidate()
         monitorTimer = Timer(
-            timeInterval: 3,
+            timeInterval: 1,
             target: self,
             selector: #selector(monitorTimerFired(_:)),
             userInfo: nil,
@@ -104,12 +104,40 @@ final class AppCoordinator: NSObject {
         assertionManager.apply(runtimePolicy)
 
         if snapshot.lidState == .open {
-            lockedForCurrentLidClosure = false
+            handledLidClosureMode = nil
         }
 
-        if runtimePolicy.lockOnCurrentLidClosure && !lockedForCurrentLidClosure {
-            lockedForCurrentLidClosure = true
+        let shouldHandleLidClosure = runtimePolicy.lockOnCurrentLidClosure || runtimePolicy.sleepOnCurrentLidClosure
+        if shouldHandleLidClosure && handledLidClosureMode != selectedMode {
+            handledLidClosureMode = selectedMode
+            performLidClosureAction(runtimePolicy)
+        }
+    }
+
+    private func performLidClosureAction(_ runtimePolicy: RuntimePowerPolicy) {
+        guard !isDryRun else {
+            return
+        }
+
+        if runtimePolicy.lockOnCurrentLidClosure {
             ScreenLocker.lock()
+        }
+
+        guard runtimePolicy.sleepOnCurrentLidClosure else {
+            return
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self else {
+                return
+            }
+
+            let snapshot = self.stateProvider.snapshot()
+            guard self.selectedMode == .standby, snapshot.lidState == .closed else {
+                return
+            }
+
+            SystemSleeper.sleepNow()
         }
     }
 }

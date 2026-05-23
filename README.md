@@ -16,8 +16,8 @@
 Power Mode Status Bar gives you three practical Mac power modes from the menu bar:
 
 - **Extreme Mode**: keep your Mac awake no matter whether it is plugged in, unplugged, open, or closed.
-- **Office Mode**: keep work running, but lock automatically when you close the lid on battery.
-- **Standby Mode**: stay awake when plugged in, then lock and sleep when unplugged with the lid closed.
+- **Office Mode**: keep work running, then lock immediately when you close the lid without sleeping.
+- **Standby Mode**: lock immediately and sleep immediately when you close the lid.
 
 Normal mode switching is password-free. The app uses runtime IOPM assertions for everyday changes, so you do not get an `osascript` password prompt every time you switch modes. A separate manual menu item is available only when you intentionally want to apply system-level `pmset` settings.
 
@@ -31,7 +31,7 @@ If this saves your Mac from unexpected sleep during builds, downloads, remote se
 | --- | --- | --- | --- |
 | Extreme | Long builds, downloads, remote sessions | Sleep off, auto-lock off | Sleep off, auto-lock off |
 | Office | Desk work, meetings, moving around | Sleep off, auto-lock on | Sleep off, auto-lock off |
-| Standby | Battery-safe standby | Auto-lock and sleep when unplugged with lid closed | Sleep follows the standby rule |
+| Standby | Battery-safe standby | Sleep on, auto-lock on | Sleep follows the standby rule |
 
 ## What You See In The Menu
 
@@ -50,8 +50,8 @@ The mode rows include the core behavior directly in the menu:
 
 ```text
 Extreme Mode    Never sleeps or auto-locks
-Office Mode     Never sleeps; locks on battery lid close
-Standby Mode    Battery lid close locks and sleeps
+Office Mode     Never sleeps; locks on lid close
+Standby Mode    Lid close locks and sleeps
 ```
 
 ## How It Works
@@ -149,7 +149,7 @@ This project is meant for people searching for:
 - Mac menu bar sleep prevention tool
 - macOS auto-lock control
 - MacBook plugged-in no sleep mode
-- MacBook battery lid close lock and sleep
+- MacBook lid close lock and sleep
 
 ## Roadmap Ideas
 

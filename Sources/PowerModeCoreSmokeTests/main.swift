@@ -36,7 +36,7 @@ func testRuleSummaryDisplayLines() throws {
         "office unplugged line mismatch"
     )
     try expect(
-        PowerMode.standby.ruleSummary.lidLine == "Lid close: sleep off, auto-lock on",
+        PowerMode.standby.ruleSummary.lidLine == "Lid close: sleep on, auto-lock on",
         "standby lid line mismatch"
     )
     try expect(
@@ -51,11 +51,11 @@ func testCoreFeatureSummaries() throws {
         "extreme core feature summary mismatch"
     )
     try expect(
-        PowerMode.office.coreFeatureSummary == "Never sleeps; locks on battery lid close",
+        PowerMode.office.coreFeatureSummary == "Never sleeps; locks on lid close",
         "office core feature summary mismatch"
     )
     try expect(
-        PowerMode.standby.coreFeatureSummary == "Battery lid close locks and sleeps",
+        PowerMode.standby.coreFeatureSummary == "Lid close locks and sleeps",
         "standby core feature summary mismatch"
     )
 }
@@ -92,8 +92,18 @@ func testRuntimePolicies() throws {
             try expect(policy.preventSystemSleep, "extreme should prevent system sleep")
             try expect(policy.preventDisplaySleep, "extreme should prevent display sleep")
             try expect(!policy.lockOnCurrentLidClosure, "extreme should not lock on lid close")
+            try expect(!policy.sleepOnCurrentLidClosure, "extreme should not sleep on lid close")
         }
     }
+
+    let officeClosedAC = PowerPolicy.runtimePolicy(
+        for: .office,
+        snapshot: SystemPowerSnapshot(powerSource: .ac, lidState: .closed)
+    )
+    try expect(officeClosedAC.preventSystemSleep, "office AC closed should prevent sleep")
+    try expect(!officeClosedAC.preventDisplaySleep, "office AC closed should allow display lock")
+    try expect(officeClosedAC.lockOnCurrentLidClosure, "office AC closed should lock")
+    try expect(!officeClosedAC.sleepOnCurrentLidClosure, "office AC closed should not sleep")
 
     let officeClosedBattery = PowerPolicy.runtimePolicy(
         for: .office,
@@ -102,6 +112,7 @@ func testRuntimePolicies() throws {
     try expect(officeClosedBattery.preventSystemSleep, "office battery closed should prevent sleep")
     try expect(!officeClosedBattery.preventDisplaySleep, "office battery closed should allow display lock")
     try expect(officeClosedBattery.lockOnCurrentLidClosure, "office battery closed should lock")
+    try expect(!officeClosedBattery.sleepOnCurrentLidClosure, "office battery closed should not sleep")
 
     let officeOpenBattery = PowerPolicy.runtimePolicy(
         for: .office,
@@ -110,14 +121,25 @@ func testRuntimePolicies() throws {
     try expect(officeOpenBattery.preventSystemSleep, "office battery open should prevent sleep")
     try expect(officeOpenBattery.preventDisplaySleep, "office battery open should prevent display sleep")
     try expect(!officeOpenBattery.lockOnCurrentLidClosure, "office battery open should not lock")
+    try expect(!officeOpenBattery.sleepOnCurrentLidClosure, "office battery open should not sleep")
 
     let standbyACClosed = PowerPolicy.runtimePolicy(
         for: .standby,
         snapshot: SystemPowerSnapshot(powerSource: .ac, lidState: .closed)
     )
-    try expect(standbyACClosed.preventSystemSleep, "standby AC should prevent sleep")
-    try expect(standbyACClosed.preventDisplaySleep, "standby AC should prevent display sleep")
-    try expect(!standbyACClosed.lockOnCurrentLidClosure, "standby AC should not lock")
+    try expect(!standbyACClosed.preventSystemSleep, "standby AC closed should release sleep prevention")
+    try expect(!standbyACClosed.preventDisplaySleep, "standby AC closed should release display prevention")
+    try expect(standbyACClosed.lockOnCurrentLidClosure, "standby AC closed should lock")
+    try expect(standbyACClosed.sleepOnCurrentLidClosure, "standby AC closed should sleep")
+
+    let standbyACOpen = PowerPolicy.runtimePolicy(
+        for: .standby,
+        snapshot: SystemPowerSnapshot(powerSource: .ac, lidState: .open)
+    )
+    try expect(standbyACOpen.preventSystemSleep, "standby AC open should prevent sleep")
+    try expect(standbyACOpen.preventDisplaySleep, "standby AC open should prevent display sleep")
+    try expect(!standbyACOpen.lockOnCurrentLidClosure, "standby AC open should not lock")
+    try expect(!standbyACOpen.sleepOnCurrentLidClosure, "standby AC open should not sleep")
 
     let standbyBatteryOpen = PowerPolicy.runtimePolicy(
         for: .standby,
@@ -126,6 +148,7 @@ func testRuntimePolicies() throws {
     try expect(!standbyBatteryOpen.preventSystemSleep, "standby battery open should release sleep prevention")
     try expect(!standbyBatteryOpen.preventDisplaySleep, "standby battery open should release display prevention")
     try expect(!standbyBatteryOpen.lockOnCurrentLidClosure, "standby battery open should not lock")
+    try expect(!standbyBatteryOpen.sleepOnCurrentLidClosure, "standby battery open should not sleep")
 
     let standbyBatteryClosed = PowerPolicy.runtimePolicy(
         for: .standby,
@@ -134,6 +157,7 @@ func testRuntimePolicies() throws {
     try expect(!standbyBatteryClosed.preventSystemSleep, "standby battery closed should release sleep prevention")
     try expect(!standbyBatteryClosed.preventDisplaySleep, "standby battery closed should release display prevention")
     try expect(standbyBatteryClosed.lockOnCurrentLidClosure, "standby battery closed should lock")
+    try expect(standbyBatteryClosed.sleepOnCurrentLidClosure, "standby battery closed should sleep")
 }
 
 do {

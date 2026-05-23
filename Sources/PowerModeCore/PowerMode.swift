@@ -23,7 +23,7 @@ public enum PowerMode: String, CaseIterable, Codable, Equatable, Sendable {
         case .office:
             return "laptopcomputer"
         case .standby:
-            return "moon.circle.fill"
+            return "battery.100"
         }
     }
 
@@ -32,9 +32,9 @@ public enum PowerMode: String, CaseIterable, Codable, Equatable, Sendable {
         case .extreme:
             return "Never sleeps or auto-locks"
         case .office:
-            return "Never sleeps; locks on battery lid close"
+            return "Never sleeps; locks on lid close"
         case .standby:
-            return "Battery lid close locks and sleeps"
+            return "Lid close locks and sleeps"
         }
     }
 }
@@ -85,7 +85,7 @@ public extension PowerMode {
             )
         case .standby:
             return RuleSummary(
-                lidTriggersSleep: false,
+                lidTriggersSleep: true,
                 lidTriggersAutoLock: true,
                 unpluggedTriggersSleep: true,
                 unpluggedTriggersAutoLock: false
